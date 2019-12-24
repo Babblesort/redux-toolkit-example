@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchBooks } from '../features/books/actions';
+import { fetchBooks } from '../features/books/thunks';
 import Book from './Book';
 import {
   getList,
