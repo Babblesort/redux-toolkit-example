@@ -1,13 +1,14 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchBooks } from '../features/books/thunks';
+import { fetchBooks } from './thunks';
 import Book from './Book';
 import {
   getList,
   getIsLoading,
   getHasLoadingError,
   getListCountDisplay
-} from '../features/books/selectors';
+} from './selectors';
+import './book-list.css';
 
 const BookList = () => {
   const books = useSelector(getList);
@@ -19,11 +20,18 @@ const BookList = () => {
 
   return (
     <div>
-      <h1>Books</h1>
-      <h2>{booksCountDisplay}</h2>
-      <button type="button" onClick={loadBooks} disabled={isLoading}>
-        {isLoading ? 'Loading...' : 'Load Books'}
-      </button>
+      <div className="books-list-header">
+        <h1>Books</h1>
+        <h2>{booksCountDisplay}</h2>
+        <button
+          className="books-list-load-button"
+          type="button"
+          onClick={loadBooks}
+          disabled={isLoading}
+        >
+          {isLoading ? 'Loading...' : 'Load Books'}
+        </button>
+      </div>
       {hasLoadingError && 'Error loading books'}
       <ul>
         {books.map(b => (

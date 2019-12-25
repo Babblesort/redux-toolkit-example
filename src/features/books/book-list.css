@@ -1,0 +1,10 @@
+.books-list-header {
+  display: flex;
+  align-items: center;
+  max-width: 500px;
+  justify-content: space-between;
+}
+
+.books-list-load-button {
+  width: 100px;
+}
